@@ -22,10 +22,14 @@ VtubeStudio - Plugin Xtoy using Javascript
 VtubeStudio, Intiface , สำคัญ (กรุณาตั้งค่า Config ให้เรียบร้อยก่อนโดยเฉพาะ TokenWS ของ Streamlab เพราะใช้ในการเรียกข้อมูลโดเนทและ Alert)
 หากพบ Error code: 'ECONNREFUSED' กรุณาตรวจสอบว่า VtubeStudio ได้เปิดให้ใช้งาน Plugin หรือไม่และกรุณาตรวจสอบ Intiface ว่าได้เปิดใช้งาน WS หรือยัง
 Port ในการใช้งานสคริปนี้ : 8001, 12345 กรุณาเช็คว่าพร้อมใช้งานหรือไม่
+
+และที่สำคัญพยายามอย่าใช้ต่อหน้า Youtube คุงบ่อยนะเดี๋ยวบินคาฟุไม่รู้ด้วยนะ
 ```
 
 **[ Require ]**
 - NodeJS v16+
+- Intiface [Download](https://intiface.com/desktop/)
+- XToy (ทั้ง Lovense / และของทั่วไป)
 - Streamlabs WS token หากไม่เจอ [กดปุ่มนี้](https://streamlabs.com/dashboard#/settings/api-settings)
 
 
