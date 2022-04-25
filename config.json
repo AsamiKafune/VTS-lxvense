@@ -1,0 +1,20 @@
+{
+     "vtsSetting":{
+       "expressions":{
+          "low": "mui.exp3.json",
+          "mid": "heart.exp3.json",
+          "height": "dark.exp3.json"
+       }
+     },
+
+     "vbtPriceSetting": {
+      "__noteReadME__":"## [ราคาโดเนท, ความแรงของ (..เครื่องสั่น...)] ##",
+       "low": [10, 0.2],
+       "mid": [50, 0.5],
+       "height": [100, 1]
+     },
+
+     "intifaceport": 12345,
+     "vtsport": 8001,
+     "StlTokenWS": "<stream lab socket token>"
+}
