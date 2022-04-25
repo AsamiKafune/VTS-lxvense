@@ -13,7 +13,7 @@ module.exports = (streamlabs, intiface, vtubeStudio) => {
                 "requestID": "1",
                 "messageType": "AuthenticationRequest",
                 "data": {
-                    "pluginName": "Horny Link",
+                    "pluginName": "KafuneLink",
                     "pluginDeveloper": "Kafune",
                     "authenticationToken": data.data.authenticationToken
                 }
