@@ -8,7 +8,7 @@ module.exports = (WebSocket, config) => {
             "requestID": "1",
             "messageType": "AuthenticationTokenRequest",
             "data": {
-                "pluginName": "Horny Link",
+                "pluginName": "KafuneLink",
                 "pluginDeveloper": "Kafune",
                 "pluginIcon": ""
             }}))
