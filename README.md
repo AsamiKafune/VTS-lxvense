@@ -1,7 +1,8 @@
 # VTS-lxvense
 English | [ไทย](./docs/README_TH.md)
 
-VtubeStudio - Plugin S*xtoy using TypeScript,
+VtubeStudio - Plugin S*xtoy using TypeScript
+
 If you are a regular user, download it here [Download](https://github.com/AsamiKafune/VTS-lxvense/releases/download/1.0.1/vtx-lxvense.zip)
 
 ## ❗ READ THIS! (1/2)
@@ -41,7 +42,7 @@ Port to use this script : 8001, 12345 Please check if it is available or not.
 3. Start Intiface Then press `"Start server"` once.
 4. and connect the toy successfully.
 5. Then press `"Disconnect from server"` on the `"Devices"` menu (Intiface).
-6. If all steps have been followed You can run this program directly by opening the file `vtx-lxvense.exe` (if downloaded from Release).
+6. If all steps have been followed You can run this program directly by opening the file `run.cmd` (if downloaded from Release).
 
 ## ⚠ Warning
 -   **The file expression name in the config must match the file name. expression.exp3.json that you have in your live2D model**
