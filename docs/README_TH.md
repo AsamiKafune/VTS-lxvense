@@ -1,7 +1,8 @@
 # VTS-lxvense
 [English](../README.md) | ไทย
 
-VtubeStudio - Plugin Xtoy using Javascript
+VtubeStudio - Plugin S*xtoy using Javascript,
+ดาวน์โหลดที่นี่ [Download](https://github.com/AsamiKafune/VTS-lxvense/releases/download/1.0.1/vtx-lxvense.zip)
 
 ## ❗ READ THIS! (1/2)
 
@@ -34,7 +35,7 @@ Port ในการใช้งานสคริปนี้ : 8001, 12345 ก
 
 -   NodeJS v16+ [Download](https://nodejs.org/)
 -   Intiface [Download](https://intiface.com/desktop/)
--   XToy (ทั้ง Lovense / และของทั่วไป)
+-   S*xtoy (ทั้ง Lovense / และของทั่วไป)
 -   Streamlabs WS token หากไม่เจอ [กดปุ่มนี้](https://streamlabs.com/dashboard#/settings/api-settings)
 
 ## 💻 How to install
