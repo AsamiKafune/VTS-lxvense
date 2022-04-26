@@ -20,7 +20,7 @@ and delete the creator's credit is not allowed. (AsamiKafune) is strictly out.
 This project is made to learn about WS and control VtubeStudio, Intiface via WS.
 ```
 
-## ⚠ Warining
+## ⚠ Warning
 
 ```
 Before running, please run the program (VtubeStudio, Intiface) above and complete the settings before starting the program "vtx-lxvense.exe".

@@ -56,13 +56,10 @@ export default class IntifaceWS extends EventEmitter {
             this.log.info(`Devices found: ${this.device_count} devices`)
             this.emit("ready")
         }
-        // }else{
-        //     console.log(data)
-        // }
     }
 
     disconnect(){
-        this.log.error("Disconnected from VTuber Studio. Exiting...")
+        this.log.error("Disconnected from Intiface. Exiting...")
         this.ws.close()
         this.emit("disconnect")
     }
