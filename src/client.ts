@@ -4,7 +4,7 @@ import { EventEmitter } from 'ws';
 
 import StreamLabsWS from './services/streamlab';
 import IntifaceWS from './services/initface';
-import VTuberStudioWS from './services/vtuberstudio';
+import VTubeStudioWS from './services/vtubestudio';
 
 import Logger from './services/logger';
 import Queue from './services/queue';
@@ -21,10 +21,10 @@ export default class VTS extends EventEmitter {
     // Websockets
     streamlabs: StreamLabsWS;
     intiface: IntifaceWS;
-    vtuberStudio: VTuberStudioWS;
+    vtubeStudio: VTubeStudioWS;
 
     // Log
-    log: Logger = new Logger("VTS");
+    log: Logger = new Logger("VTS-LXVENSE");
 
     // Queue
     queue: Queue = new Queue()
@@ -36,7 +36,7 @@ export default class VTS extends EventEmitter {
 
         this.streamlabs = new StreamLabsWS(options.server.streamlabs.token)
         this.intiface = new IntifaceWS(`ws://${options.server.intiface.host}:${options.server.intiface.port}`)
-        this.vtuberStudio = new VTuberStudioWS(`ws://${options.server.vtuberstudio.host}:${options.server.vtuberstudio.port}`)
+        this.vtubeStudio = new VTubeStudioWS(`ws://${options.server.vtubestudio.host}:${options.server.vtubestudio.port}`)
         
         // Queue evrnts
         this.queue.on("queue", (data: IQueueData, next: () => void) => this.active(data, next))
@@ -48,9 +48,10 @@ export default class VTS extends EventEmitter {
         this.streamlabs.once("disconnect", () => this.kill())
         this.intiface.once("disconnect", () => this.kill())
         
-        // Event of vtuberstudio
-        this.vtuberStudio.once("authenticationFailed", () => this.kill())
-        this.vtuberStudio.once("ready", () => this.check())
+        // Event of vtubeStudio
+        this.vtubeStudio.once("authenticationFailed", () => this.kill())
+        this.vtubeStudio.once("ready", () => this.check())
+        this.vtubeStudio.once("disconnect", () => this.kill())
     }
     
     start(){ 
@@ -76,13 +77,14 @@ export default class VTS extends EventEmitter {
             if(filename.endsWith(".ts") || filename.endsWith(".js")){
                 const lib = require(resolve(PATH, filename))?.default
                 if(lib && lib.enabled){
-                    this.streamlabs.on(filename.split(".")[0], (data, streamlab) => lib.run(data, this, streamlab))
-                    this.log.success(`Loaded event: ${filename}`)
+                    const _filename = filename.split(".")[0]
+                    this.streamlabs.on(_filename, (data, streamlab) => lib.run(data, this, streamlab))
+                    this.log.success(`Loaded event: ${_filename}`)
                 }
             }
         }
 
-        this.log.success(`VTS is ready! :) (${performance.now().toFixed(2)}ms)`)
+        this.log.success(`Now ready! :) (${performance.now().toFixed(2)}ms)`)
     }
 
     async check(){
@@ -90,7 +92,7 @@ export default class VTS extends EventEmitter {
             this.streamlabs?.is_connected && 
             this.intiface?.is_connected
         ){
-            if(!this.vtuberStudio.is_connected) this.vtuberStudio.connect()
+            if(!this.vtubeStudio.is_connected) this.vtubeStudio.connect()
             else this.init()
         }
     }
@@ -98,13 +100,13 @@ export default class VTS extends EventEmitter {
     private async active(data: IQueueData, next: () => void){
         // Start device & reaction vtuber studio
         this.intiface.startDevice(data.power)
-        this.vtuberStudio.reaction(data.expression, true)
+        this.vtubeStudio.reaction(data.expression, true)
 
         // Waiting 
         await new Promise(resolve => setTimeout(resolve, this.options.queue.delay))
 
         // Clear reaction
-        this.vtuberStudio.reaction(data.expression, false)
+        this.vtubeStudio.reaction(data.expression, false)
 
         // Next queue
         next();
@@ -113,7 +115,7 @@ export default class VTS extends EventEmitter {
     private async deactive(data: IQueueData){
         // Stop all device & reaction vtuber studio
         this.intiface.startDevice(0)
-        this.vtuberStudio.reaction(data.expression, false)
+        this.vtubeStudio.reaction(data.expression, false)
     }
 
     private kill(){
