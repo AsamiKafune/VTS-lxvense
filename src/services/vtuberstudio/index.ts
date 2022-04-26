@@ -1,9 +1,8 @@
-import fs from 'fs'
-
 import { EventEmitter, WebSocket, MessageEvent } from 'ws';
 
-import Logger from '../logger';
+import icon from './icon';
 
+import Logger from '../logger';
 export default class VTuberStudioWS extends EventEmitter {
     ws: WebSocket;
     log: Logger = new Logger("VTuberStudio");
@@ -32,13 +31,10 @@ export default class VTuberStudioWS extends EventEmitter {
         this.log.success("Connected to VTuber Studio")
         this.log.warn("Please accept plugin to continue")
 
-        // Load icon
-        const icon = fs.readFileSync(`${__dirname}/image/icon.png`)
-
         this.sendJSON("AuthenticationTokenRequest", {
             pluginName: "KafuneLink",
             pluginDeveloper: "Kafune",
-            pluginIcon: Buffer.from(icon).toString("base64")
+            pluginIcon: icon.icon
         })
     }
 
