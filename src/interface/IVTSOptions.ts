@@ -3,7 +3,7 @@ export interface IIntiface {
     port: number;
 }
 
-export interface IVTuberStdio {
+export interface IVTubeStudio {
     host: string;
     port: number;
 }
@@ -34,6 +34,6 @@ export default interface IVTSOptions {
     server: {
         intiface: IIntiface;
         streamlabs: IStreamlabs;
-        vtuberstudio: IVTuberStdio;
+        vtubestudio: IVTubeStudio;
     }
 }
