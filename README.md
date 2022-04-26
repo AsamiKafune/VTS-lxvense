@@ -27,7 +27,7 @@ Port ในการใช้งานสคริปนี้ : 8001, 12345 ก
 ```
 
 **[ Require ]**
-- NodeJS v16+
+- NodeJS v16+ [Download](https://nodejs.org/)
 - Intiface [Download](https://intiface.com/desktop/)
 - XToy (ทั้ง Lovense / และของทั่วไป)
 - Streamlabs WS token หากไม่เจอ [กดปุ่มนี้](https://streamlabs.com/dashboard#/settings/api-settings)
@@ -47,4 +47,5 @@ Port ในการใช้งานสคริปนี้ : 8001, 12345 ก
 - คุณไนส์ [nicenathapong](https://github.com/nicenathapong/)
 - คุณว่าน [mrwan200](https://github.com/mrwan200/)
 - คุณมิว [MikihinaSann](https://github.com/MikihinaSann/)
+- คาฟุ [AsamiKafune](https://github.com/AsamiKafune/)
  
