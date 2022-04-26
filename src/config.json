@@ -22,7 +22,7 @@
           "port": 8001
       },
       "streamlabs": {
-          "token": "นำ TOKEN ของ Streamlabs มาใส่ตรงนี้"
+          "token": "TOKEN SOCKET API OF STREAMLABS"
       },
       "intiface": {
           "host": "127.0.0.1",
