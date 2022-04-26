@@ -1,0 +1,35 @@
+{
+  "donation": {
+      "low": {
+          "ammout": 10,
+          "expresstions": "mui.exp3.json",
+          "power": 0.2
+      },
+      "mid": {
+          "ammout": 50,
+          "expresstions": "heart.exp3.json",
+          "power": 0.5
+      },
+      "height": {
+          "ammout": 100,
+          "expresstions": "dark.exp3.json",
+          "power": 1.0
+      }
+  },
+  "server": {
+      "vtuberstudio": {
+          "host": "127.0.0.1",
+          "port": 8001
+      },
+      "streamlabs": {
+          "token": "นำ TOKEN ของ Streamlabs มาใส่ตรงนี้"
+      },
+      "intiface": {
+          "host": "127.0.0.1",
+          "port": 12345
+      }
+  },
+  "queue": {
+    "delay": 3000
+  }
+}
