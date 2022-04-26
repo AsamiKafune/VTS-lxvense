@@ -1,7 +1,7 @@
 # VTS-lxvense
 English | [ไทย](./docs/README_TH.md)
 
-VtubeStudio - Plugin S*xtoy using TypeScript 100%
+VtubeStudio - Plugin S*xtoy using TypeScript,
 If you are a regular user, download it here [Download](https://github.com/AsamiKafune/VTS-lxvense/releases/download/1.0.1/vtx-lxvense.zip)
 
 ## ❗ READ THIS! (1/2)
