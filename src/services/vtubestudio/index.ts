@@ -1,9 +1,12 @@
-import { EventEmitter, WebSocket, MessageEvent } from 'ws';
+import { WebSocket, MessageEvent } from 'ws';
+import { TypedEmitter } from 'tiny-typed-emitter';
+
+import IVTubeStudioEvents from './interface/IVTubeStudioEvents';
 
 import icon from './icon';
 
 import Logger from '../logger';
-export default class VTuberStudioWS extends EventEmitter {
+export default class VTubeStudioWS extends TypedEmitter<IVTubeStudioEvents> {
     ws: WebSocket;
     log: Logger = new Logger("VTuberStudio");
 
@@ -19,7 +22,7 @@ export default class VTuberStudioWS extends EventEmitter {
     }
 
     connect(){
-        this.log.warn("Connecting to VTuber Studio...")
+        this.log.warn("Connecting to VTube Studio...")
 
         this.ws = new WebSocket(this.url)
         this.ws.onopen = this.ready.bind(this)
@@ -28,7 +31,7 @@ export default class VTuberStudioWS extends EventEmitter {
     }
 
     ready(){
-        this.log.success("Connected to VTuber Studio")
+        this.log.success("Connected to VTube Studio")
         this.log.warn("Please accept plugin to continue")
 
         this.sendJSON("AuthenticationTokenRequest", {
@@ -62,7 +65,7 @@ export default class VTuberStudioWS extends EventEmitter {
                     break;
                 }
             case "APIError":
-                this.log.error("VTuber Studio Error: " + data.data.message)
+                this.log.error("VTube Studio Error: " + data.data.message)
                 this.ws.close()
                 this.emit("authenticationFailed")
                 break;
@@ -70,8 +73,9 @@ export default class VTuberStudioWS extends EventEmitter {
     }
 
     disconnect(){
-        this.log.error("Disconnected from  VTuber Studio. Exiting...")
+        this.log.error("Disconnected from VTube Studio. Exiting...")
         this.ws.close()
+        this.emit("disconnect")
     }
 
     reaction(expression: string, enabled: boolean = false){
