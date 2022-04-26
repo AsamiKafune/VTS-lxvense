@@ -42,4 +42,9 @@ Port ในการใช้งานสคริปนี้ : 8001, 12345 ก
 - ตัวโมเดลวีจะต้องตั้งค่า Expression หรือสีหน้าที่อยากได้ให้เสร็จก่อนที่ไฟล์ Config ของสคริปนี้โดยการน้ำชื่อไฟล์ไปใส่ใน expressions ได้เลย
 - ตั้งค่า Intiface ให้เชื่อมกับของเล่นให้เรียบร้อยจากนั้นกด StartServer แล้วเชื่อมของเล่นผ่าน Intiface จากนั้นกด Stopserver หนึ่งครั้งก่อนกด StartServer แล้วค่อยรันสคริปนี้
 ```
+
+** [ ผู้ร่วมโปรเจค ขอบคุณมากๆค้าบบ ] **
+- คุณไนส์ [nicenathapong](https://github.com/nicenathapong/)
+- คุณว่าน [mrwan200](https://github.com/mrwan200/)
+- คุณมิว [MikihinaSann](https://github.com/MikihinaSann/)
  
