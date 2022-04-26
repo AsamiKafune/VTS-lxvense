@@ -99,7 +99,7 @@ $ yarn dev
 $ yarn build
 $ yarn start
 
-// หากต้องการเ build เป็น .exe 
+// หากต้องการ build เป็น .exe 
 $ yarn build:win
 ```
 
