@@ -1,13 +1,17 @@
 {
   "name": "vtx-lxvense",
   "author": "AsamiKafune",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "main": "./dist/app.js",
+  "bin": "./dist/app.js",
   "scripts": {
     "dev": "cd ./src && ts-node app.ts",
     "build": "tsc",
+    "build:win": "pkg .",
     "start": "tsc && cd ./dist && node app.js"
   },
   "dependencies": {
+    "pkg": "^5.6.0",
     "socket.io-client": "2.3.0",
     "tiny-typed-emitter": "^2.1.0",
     "ws": "^8.5.0"
@@ -17,5 +21,15 @@
     "@types/ws": "^8.5.3",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.3"
+  },
+  "pkg": {
+    "main": "./dist/app.js",
+    "assets": [
+      "dist/events/**/*"
+    ],
+    "targets": [
+      "node16-win-x64"
+    ],
+    "outputPath": "./build"
   }
 }
