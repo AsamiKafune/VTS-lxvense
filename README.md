@@ -1,116 +1,132 @@
 # VTS-lxvense
-English | [ไทย](./docs/README_TH.md)
 
-VtubeStudio - Plugin S*xtoy using TypeScript
+Lovense remote manager
 
-If you are a regular user, download it here [Download](https://github.com/AsamiKafune/VTS-lxvense/releases/download/1.0.1/vtx-lxvense.zip)
+ดาวน์โหลดที่นี่ [Download](https://github.com/AsamiKafune/VTS-lxvense/releases)
 
 ## ❗ READ THIS! (1/2)
 
 ```
-For this Script is Open Source and can be modified as needed.
-But it's great if it's not used to impersonate or resell without permission because it's open source.
-If you want to use or modify and distribute, please distribute open source only!
-and delete the creator's credit is not allowed. (AsamiKafune) is strictly out.
+สำหรับ Script นี้เป็น Open Source สามารถนำไปดัดแปลงแก้ไขได้ตามความต้องการและ
+ไม่นำไปแอบอ้างหรือขายต่อโดยไม่ได้รับอนุญาตเพราะมันคือ Opensource
+หากต้องการนำไปใช้หรือแก้ไขและแจกจ่ายกรุณาแจกจ่ายแบบ Open Source ไม่อนุญาตให้ทำการปิดบังไฟล์ๆ
+และไม่อนุญาตให้ลบเครดิตของผู้สร้าง (AsamiKafune) ออกเด็ดขาด
 ```
 
 ## ❗ READ THIS! (2/2)
 
 ```
-This project is made to learn about WS and control VtubeStudio, Intiface via WS.
+โปรเจ็คนี้ทำมาเพื่อศึกษาเกี่ยวกับ WS/SOCKET.IO และการควบคุม VtubeStudio, OSC ผ่าน WS/SOCKET.IO
+ไม่ได้มีเจตนาร้ายไดๆทั้งสิ้นและหวังว่าทุกๆคนจะเข้าใจและชอบมันนะครับ >w<
 ```
 
-## ⚠ Warning
+## ⚠ Warining
 
 ```
-Before running, please run the program (VtubeStudio, Intiface) above and complete the settings before starting the program "vtx-lxvense.exe".
-**IMPORTANT** (Please set the config first, especially Streamlab's TokenWS because it is used to retrieve Donate and Alert information)
-If you encounter Error code: 'ECONNREFUSED', please check if VtubeStudio has enabled Plugin and please check Intiface if WS is enabled or not.
-Port to use this script : 8001, 12345 Please check if it is available or not.
+ก่อนรัน กรุณาตั้งค่า Config ให้เรียบร้อยก่อนโดยเฉพาะ TokenWS ของ Streamlab เพราะใช้ในการเรียกข้อมูลโดเนทและ Alert
+หากพบ Error code: 'ECONNREFUSED' กรุณาตรวจสอบว่า VtubeStudio ได้เปิดให้ใช้งาน Plugin หรือไม่
+Port ในการใช้งานสคริปนี้ : 8001, 9000, 9001 กรุณาเช็คว่าพร้อมใช้งานหรือไม่
+
+และที่สำคัญพยายามอย่าใช้ต่อหน้า Youtube คุงบ่อยนะเดี๋ยวบินคาฟุไม่รู้ด้วยนะ
 ```
 
 ## ⚙ Reqirements
 
 -   NodeJS v16+ [Download](https://nodejs.org/)
--   Intiface [Download](https://intiface.com/desktop/)
--   S*xtoy (Lovense / and general)
--   Streamlabs WS token [Link](https://streamlabs.com/dashboard#/settings/api-settings)
+-   S*xtoy (สำหรับเวอร์ชั่น FUWA สามารถใช้ได้แค่ Lovense)
+-   Streamlabs WS token หากไม่เจอ [กดปุ่มนี้](https://streamlabs.com/dashboard#/settings/api-settings)
 
 ## 💻 How to install
-1. Download [Release](https://github.com/AsamiKafune/VTS-lxvense/releases)
-2. Start VTube Studio Then open VTubeStudio Plugin using Port `8001` or as required by config.
-3. Start Intiface Then press `"Start server"` once.
-4. and connect the toy successfully.
-5. Then press `"Disconnect from server"` on the `"Devices"` menu (Intiface).
-6. If all steps have been followed You can run this program directly by opening the file `run.cmd` (if downloaded from Release).
+1. Download จาก [Release](https://github.com/AsamiKafune/VTS-lxvense/releases)
+2. ทำการเปิด VTube Studio แล้วจากนั้นเปิด VTubeStudio Plugin โดยใช้ Port `8001` หรือตาม Config ที่ต้องการ
+3. แก้ไข Config และเปิดตัว Plugin
+3.1 สำหรับการเชื่อมต่อของเล่นจำเป็นต้องโหลด Lovense Connect บนมือถือแล้วกดไปยังปุ่ม Scan QR -> IP Addresss (สำคัญมากต้องอยู่ในวงแลนเดียวกัน)
+4. หากทำตามครบทุกขั้นตอนแล้ว ก็สามารถเปิดใช้งานโปรแกรมนี้ได้เลย โดยเปิดไฟล์ `start.cmd` (หากโหลดจาก Release)
 
-## ⚠ Warning
--   **The file expression name in the config must match the file name. expression.exp3.json that you have in your live2D model**
-
-## 📄 Config.json
+## 📄 โครงสร้าง Config.json
+สำหรับการเชื่อมกับ VRCHAT จะมีอัพเดทในเร็วๆนี้ยังไม่สามารถใช้ได้ในตอนนี้
 ```json
 {
-    "queue": {
-        "delay": 3000
-    },
-    "donate": {
-        "low": {
-            "ammout": 10,
-            "expresstions": "low.exp3.json",
-            "power": 0.2
+    "donate": [
+        {
+            "amount": 1000,
+            "lovense": {
+                "command": "Function",
+                "action": "Vibrate:10,Rotate:3",
+                "timeSec": 20
+            },
+            "expresstions": "EyesLove.exp3.json"
         },
-        "mid": {
-            "ammout": 50,
-            "expresstions": "mid.exp3.json",
-            "power": 0.5
-        },
-        "height": {
-            "ammout": 100,
-            "expresstions": "height.exp3.json",
-            "power": 1.0
+        {
+            "amount": 20,
+            "lovense": {
+                "command": "Function",
+                "action": "Vibrate:3,Rotate:3",
+                "timeSec": 20
+            },
+            "expresstions": "EyesLove.exp3.json"
         }
-    },
+    ],
+    "vrchat": [
+        {
+            "avatar_vrc_paramitor_1": "nametoy_1",
+            "avatar_vrc_paramitor_2": "nametoy_2"
+        }
+    ],
     "server": {
-        "vtuberstudio": {
+        "streamlabs": {
+            "enable": true,
+            "token": ""
+        },
+        "lovense_connect": {
+            "randomAction": false,
+            "minimumDonate": 10,
+            "connecturl": "http://192.168.1.103:20010"
+        },
+        "vtubestudio": {
+            "enable": true,
             "host": "127.0.0.1",
             "port": 8001
         },
-        "streamlabs": {
-            "token": "Streamlabs WS TOKEN"
-        },
-        "intiface": {
+        "vrchat": {
+            "enable": false,
             "host": "127.0.0.1",
-            "port": 12345
+            "port": {
+                "out": 9000,
+                "in": 9001
+            }
         }
     }
 }
 ```
 
-## ✨ FOR DEVELOPER
+## ✨ สำหรับนักพัฒนา
 
 ```bash
 // Download script & Install library
 $ git clone https://github.com/AsamiKafune/VTS-lxvense
 $ yarn install
 
-// Development mode (**It is not recommended for actual use because it consumes a lot of RAM.**)
+// Development mode (**ไม่แนะนำให้ใช้งานจริง เพราะจะกิน RAM สูง**)
 $ yarn dev
 
-// Production mode (**recommended**)
+// Production mode (**ควรใช้งานอันนี้**)
 $ yarn build
 $ yarn start
 
-// build to .exe 
-$ yarn build
+// หากต้องการ build เป็น .exe 
 $ yarn build:win
 ```
 
-## 🔮 Special thank
+## ⚠ คำเตือน
+-   **ชื่อ File Expression จะต้องตรงกับในโมเดลของ VTube Studio ไม่เช่นนั้นโมเดลจะไม่สารถเล่นได้**
+
+## 🔮 ผู้ร่วมโปรเจค ขอบคุณมากๆค้าบบ
 
 -   [nicenathapong](https://github.com/nicenathapong/)
 -   [mrwan200](https://github.com/mrwan200/)
 -   [MikihinaSann](https://github.com/MikihinaSann/)
--   [AsamiKafune](https://github.com/AsamiKafune/) <- ME >w<
+-   [AsamiKafune](https://github.com/AsamiKafune/) <- ผมเอง >w<
 
 ## LICENSE
 

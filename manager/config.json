@@ -1,0 +1,52 @@
+{
+    "donate": [
+        {
+            "amount": 1000,
+            "lovense": {
+                "command": "Function",
+                "action": "Vibrate:10,Rotate:3",
+                "timeSec": 20
+            },
+            "expresstions": "EyesLove.exp3.json"
+        },
+        {
+            "amount": 20,
+            "lovense": {
+                "command": "Function",
+                "action": "Vibrate:3,Rotate:3",
+                "timeSec": 20
+            },
+            "expresstions": "EyesLove.exp3.json"
+        }
+    ],
+    "vrchat": [
+        {
+            "avatar_vrc_paramitor_1": "nametoy_1",
+            "avatar_vrc_paramitor_2": "nametoy_2"
+        }
+    ],
+    "server": {
+        "streamlabs": {
+            "enable": true,
+            "token": ""
+        },
+        "lovense_connect": {
+            "randomAction": false,
+            "minimumDonate": 10,
+            "connecturl": "http://192.168.1.103:20010"
+        },
+        "vtubestudio": {
+            "enable": true,
+            "host": "127.0.0.1",
+            "port": 8001
+        },
+        "vrchat": {
+            "enable": false,
+            "host": "127.0.0.1",
+            "port": {
+                "out": 9000,
+                "in": 9001
+            }
+        }
+    }
+}
