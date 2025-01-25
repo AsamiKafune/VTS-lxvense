@@ -100,33 +100,11 @@ Port ในการใช้งานสคริปนี้ : 8001, 9000, 900
 }
 ```
 
-## ✨ สำหรับนักพัฒนา
-
-```bash
-// Download script & Install library
-$ git clone https://github.com/AsamiKafune/VTS-lxvense
-$ yarn install
-
-// Development mode (**ไม่แนะนำให้ใช้งานจริง เพราะจะกิน RAM สูง**)
-$ yarn dev
-
-// Production mode (**ควรใช้งานอันนี้**)
-$ yarn build
-$ yarn start
-
-// หากต้องการ build เป็น .exe 
-$ yarn build:win
-```
-
 ## ⚠ คำเตือน
 -   **ชื่อ File Expression จะต้องตรงกับในโมเดลของ VTube Studio ไม่เช่นนั้นโมเดลจะไม่สารถเล่นได้**
 
-## 🔮 ผู้ร่วมโปรเจค ขอบคุณมากๆค้าบบ
-
--   [nicenathapong](https://github.com/nicenathapong/)
--   [mrwan200](https://github.com/mrwan200/)
--   [MikihinaSann](https://github.com/MikihinaSann/)
--   [AsamiKafune](https://github.com/AsamiKafune/) <- ผมเอง >w<
+## 🔮 Credits
+-   [AsamiKafune](https://github.com/AsamiKafune/)
 
 ## LICENSE
 
