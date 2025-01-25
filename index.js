@@ -42,7 +42,12 @@ if (config.server.streamlabs.enable) {
     streamlabs.on("event", async (eventData) => {
         if (eventData["type"] === "donation" || eventData["type"] === "bits") {
             const donate_action = JSON.parse(fs.readFileSync(path.join(process.cwd(), "/manager/config.json")))
-            const find = donate_action.donate.find(e => e.amount == parseInt(eventData.message[0].amount))
+            const find = donate_action.donate.reduce((prev, curr) => {
+                const prevDiff = Math.abs(prev.amount - parseInt(eventData.message[0].amount));
+                const currDiff = Math.abs(curr.amount - parseInt(eventData.message[0].amount));
+                return prevDiff <= currDiff ? prev : curr;
+            });
+
             let rawEvent = eventData.message[0]
             console.log(`\n[DONATE INFO] ----------`)
             console.log(`name: ${rawEvent.from}`)
@@ -52,21 +57,22 @@ if (config.server.streamlabs.enable) {
             console.log(`formattedAmount (debug): ${rawEvent.formattedAmount}`)
             console.log(`hasAction:`, find ? true : false)
             console.log(`[ END ] -----------------`)
-            if (find) {
-                sendAction(find.lovense, find.expresstions, rawEvent)
-            } else {
-                if (getGlobalConfig().server.lovense_connect.randomAction) {
-                    if (parseInt(parseFloat(eventData.message[0].amount).toFixed(0)) >= getGlobalConfig().server.lovense_connect.minimumDonate) {
+
+            if (parseInt(parseFloat(eventData.message[0].amount).toFixed(0)) >= config.server.lovense_connect.minimumDonate) {
+                if (find) {
+                    sendAction(find.lovense, find.expresstions, rawEvent)
+                } else {
+                    if (getGlobalConfig().server.lovense_connect.randomAction) {
                         if (donate_action.donate.length != 0) {
                             const rand = donate_action.donate[Math.floor(Math.random() * donate_action.donate.length)]
                             sendAction(rand.lovense, rand.expresstions, rawEvent)
                         } else {
                             console.log("[LOGS] action not found!")
                         }
-                    } else {
-
                     }
                 }
+            } else {
+                console.log("[LOGS] Donate amount does not reach the minimum.")
             }
         }
     })
