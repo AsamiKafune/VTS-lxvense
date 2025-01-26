@@ -44,9 +44,10 @@ Port ในการใช้งานสคริปนี้ : 8001, 9000, 900
 4. หากทำตามครบทุกขั้นตอนแล้ว ก็สามารถเปิดใช้งานโปรแกรมนี้ได้เลย โดยเปิดไฟล์ `start.cmd` (หากโหลดจาก Release)
 
 ## 📄 โครงสร้าง Config.json
-สำหรับการเชื่อมกับ VRCHAT จะมีอัพเดทในเร็วๆนี้ยังไม่สามารถใช้ได้ในตอนนี้
 ```json
 {
+    "README": "In donate section. expresstions for VTubeStudio and vrchatParametor for VRChat.",
+    "README2": "if you don't need to use for VRChat or VTubeStudio you can ignore it but don't remove this.",
     "donate": [
         {
             "amount": 1000,
@@ -55,28 +56,36 @@ Port ในการใช้งานสคริปนี้ : 8001, 9000, 900
                 "action": "Vibrate:10,Rotate:3",
                 "timeSec": 20
             },
-            "expresstions": "EyesLove.exp3.json"
+            "expresstions": "EyesLove.exp3.json",
+            "vrchatParametor": {
+                "parameter": "/avatar/parameters/this_fx_parametor",
+                "ActiveValue": 1,
+                "DeActiveValue": 0
+            }
         },
         {
-            "amount": 20,
+            "amount": 50,
             "lovense": {
                 "command": "Function",
                 "action": "Vibrate:3,Rotate:3",
                 "timeSec": 20
             },
-            "expresstions": "EyesLove.exp3.json"
+            "expresstions": "EyesLove.exp3.json",
+            "vrchatParametor": {
+                "parameter": "/avatar/parameters/this_fx_parametor",
+                "ActiveValue": 2,
+                "DeActiveValue": 0
+            }
         }
     ],
-    "vrchat": [
-        {
-            "avatar_vrc_paramitor_1": "nametoy_1",
-            "avatar_vrc_paramitor_2": "nametoy_2"
-        }
-    ],
+    "vrchat_haptic": {
+        "/avatar/parameters/touch_boolean1": "toyid_1",
+        "/avatar/parameters/touch_boolean2": "toyid_2"
+    },
     "server": {
         "streamlabs": {
             "enable": true,
-            "token": ""
+            "token": "streamlabs api socket token"
         },
         "lovense_connect": {
             "randomAction": false,
@@ -89,11 +98,14 @@ Port ในการใช้งานสคริปนี้ : 8001, 9000, 900
             "port": 8001
         },
         "vrchat": {
+            "README": "You can't use streamlab and hapticmode in sametime!",
             "enable": false,
+            "haptic": false,
+            "hapticAction": "Vibrate:3",
             "host": "127.0.0.1",
             "port": {
-                "out": 9000,
-                "in": 9001
+                "sender": 9000,
+                "listen": 9001
             }
         }
     }
@@ -102,6 +114,9 @@ Port ในการใช้งานสคริปนี้ : 8001, 9000, 900
 
 ## ⚠ คำเตือน
 -   **ชื่อ File Expression จะต้องตรงกับในโมเดลของ VTube Studio ไม่เช่นนั้นโมเดลจะไม่สารถเล่นได้**
+-   **ในส่วนตรงตั้งค่า Donate หากไม่ใช้ VtubeStudio หรือ VRChat ให้ปล่อย Config นั้นไว้ห้ามลบออกแต่อย่าลืมปิดในส่วนของ Server**
+-   **(สำหรับ VRCHAT) ไม่สามารถใช้โหมดการสัมผัสตัว (haptic) และโดเนทในเวลาเดียวกันได้ต้องเลือกอย่างได้อย่างหนึ่ง**
+-   **(สำหรับ DEV) เนื่องจาก Module Node-OSC ไม่สามารถทำ Excute file ได้ต้องทำการแก้ไขในตัว Node_modules ก่อน build PKG**
 
 ## 🔮 Credits
 -   [AsamiKafune](https://github.com/AsamiKafune/)

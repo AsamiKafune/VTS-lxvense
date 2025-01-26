@@ -1,4 +1,6 @@
 {
+    "README": "In donate section. expresstions for VTubeStudio and vrchatParametor for VRChat.",
+    "README2": "if you don't need to use for VRChat or VTubeStudio you can ignore it but don't remove this.",
     "donate": [
         {
             "amount": 1000,
@@ -7,28 +9,36 @@
                 "action": "Vibrate:10,Rotate:3",
                 "timeSec": 20
             },
-            "expresstions": "EyesLove.exp3.json"
+            "expresstions": "EyesLove.exp3.json",
+            "vrchatParametor": {
+                "parameter": "/avatar/parameters/this_fx_parametor",
+                "ActiveValue": 1,
+                "DeActiveValue": 0
+            }
         },
         {
-            "amount": 20,
+            "amount": 50,
             "lovense": {
                 "command": "Function",
                 "action": "Vibrate:3,Rotate:3",
                 "timeSec": 20
             },
-            "expresstions": "EyesLove.exp3.json"
+            "expresstions": "EyesLove.exp3.json",
+            "vrchatParametor": {
+                "parameter": "/avatar/parameters/this_fx_parametor",
+                "ActiveValue": 2,
+                "DeActiveValue": 0
+            }
         }
     ],
-    "vrchat": [
-        {
-            "avatar_vrc_paramitor_1": "nametoy_1",
-            "avatar_vrc_paramitor_2": "nametoy_2"
-        }
-    ],
+    "vrchat_haptic": {
+        "/avatar/parameters/touch_boolean1": "toyid_1",
+        "/avatar/parameters/touch_boolean2": "toyid_2"
+    },
     "server": {
         "streamlabs": {
             "enable": true,
-            "token": ""
+            "token": "streamlabs api socket token"
         },
         "lovense_connect": {
             "randomAction": false,
@@ -41,11 +51,14 @@
             "port": 8001
         },
         "vrchat": {
+            "README": "You can't use streamlab and hapticmode in sametime!",
             "enable": false,
+            "haptic": false,
+            "hapticAction": "Vibrate:3",
             "host": "127.0.0.1",
             "port": {
-                "out": 9000,
-                "in": 9001
+                "sender": 9000,
+                "listen": 9001
             }
         }
     }
