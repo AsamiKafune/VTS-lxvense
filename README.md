@@ -83,6 +83,12 @@ Port ในการใช้งานสคริปนี้ : 8001, 9000, 900
         "/avatar/parameters/touch_boolean2": "toyid_2"
     },
     "server": {
+        "overlay": {
+            "README": "If you modify the \"PORT\" value, please make the same change in /manager/public/overlay.html",
+            "README2": "OBS browser URL: http://localhost:8002",
+            "port": 8002,
+            "host": "0.0.0.0"
+        },
         "streamlabs": {
             "enable": true,
             "token": "streamlabs api socket token"
