@@ -263,11 +263,11 @@ function getGlobalConfig() {
 //overlay
 
 fastify.register(require('@fastify/static'), {
-    root: path.join(__dirname, '/manager/public/'),
+    root: path.join(process.cwd(), '/manager/public/'),
     prefix: '/public/'
 })
 
-fastify.get('/', { websocket: true }, function (req, reply) {
+fastify.get('/', function (req, reply) {
     reply.sendFile('overlay.html')
 })
 
