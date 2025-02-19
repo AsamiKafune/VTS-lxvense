@@ -36,6 +36,11 @@
         "/avatar/parameters/touch_boolean2": "toyid_2"
     },
     "server": {
+        "overlay": {
+            "README": "if you edit this \"PORT\" please edit in /manager/public/overlay.html same!",
+            "port": 8002,
+            "host": "0.0.0.0"
+        },
         "streamlabs": {
             "enable": true,
             "token": "streamlabs api socket token"
