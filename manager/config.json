@@ -37,7 +37,8 @@
     },
     "server": {
         "overlay": {
-            "README": "if you edit this \"PORT\" please edit in /manager/public/overlay.html same!",
+            "README": "If you modify the \"PORT\" value, please make the same change in /manager/public/overlay.html",
+            "README2": "OBS browser URL: http://localhost:8002",
             "port": 8002,
             "host": "0.0.0.0"
         },
